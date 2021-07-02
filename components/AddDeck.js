@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { purple, white } from '../utils/colors'
+import { saveDeckTitle } from '../utils/api'
 
 const AddBtn = ({ onPress }) => {
     return (
@@ -15,6 +16,7 @@ export default function AddDeck({ navigation }) {
     const [text, setText] = useState("")
 
     function add(){
+        saveDeckTitle(text)
         navigation.goBack()
     }
 
@@ -28,7 +30,6 @@ export default function AddDeck({ navigation }) {
                 }}
                 value={text}
                 placeholder="Enter Your Deck Title"
-                keyboardType="text"
             />
             <AddBtn onPress={add}/>
         </View>
