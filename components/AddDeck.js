@@ -1,7 +1,9 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { purple, white } from '../utils/colors'
 import { saveDeckTitle } from '../utils/api'
+import { addDeck } from '../actions'
 
 const AddBtn = ({ onPress }) => {
     return (
@@ -12,11 +14,13 @@ const AddBtn = ({ onPress }) => {
     )
 }
 
-export default function AddDeck({ navigation }) {
+function AddDeck({ dispatch, navigation }) {
     const [text, setText] = useState("")
 
     function add(){
         saveDeckTitle(text)
+        dispatch(addDeck(text))
+        setText("")
         navigation.goBack()
     }
 
@@ -62,3 +66,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 });
+
+function mapStateToProps(state) {
+    return {
+      decks: state
+    }
+  }
+  export default connect(mapStateToProps)(AddDeck)
+  

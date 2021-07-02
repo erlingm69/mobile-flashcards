@@ -10,7 +10,6 @@ export function getDecks() {
 
 export function saveDeckTitle(title) {
     return AsyncStorage.getItem(STORAGE_KEY).then((results) => {
-        debugger
         let data = JSON.parse(results)
         if (data === null) {
             data = {}

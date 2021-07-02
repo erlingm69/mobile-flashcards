@@ -1,10 +1,28 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
+import DeckItem from './DeckItem'
 
-export default function DeckList() {
-    return(
+function DeckList({ decks }) {
+    if (!decks) {
+        return
+    }
+
+    return (
         <View>
-        <Text>Deck List</Text>
+            {
+                Object.keys(decks).map((item, index) => {
+                    return <DeckItem data={decks[item]} />
+                })
+            }
         </View>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        decks: state
+    }
+}
+
+export default connect(mapStateToProps)(DeckList)
