@@ -11,8 +11,12 @@ const AddBtn = ({ onPress }) => {
     )
 }
 
-export default function AddDeck() {
-    const [text, setText] = useState("");
+export default function AddDeck({ navigation }) {
+    const [text, setText] = useState("")
+
+    function add(){
+        navigation.goBack()
+    }
 
     return (
         <View style={{ flex: 1, alignContent: "center", justifyContent: "center" }}>
@@ -26,7 +30,7 @@ export default function AddDeck() {
                 placeholder="Enter Your Deck Title"
                 keyboardType="text"
             />
-            <AddBtn />
+            <AddBtn onPress={add}/>
         </View>
     )
 }
