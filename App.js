@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native'
 import DeckList from './components/DeckList'
+import AddDeck from './components/AddDeck';
 import { FontAwesome, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { purple, white, gray } from './utils/colors';
 
@@ -27,7 +28,7 @@ function MyTabs() {
             color={color} />
           ),
         }} />
-      <Tab.Screen name="Add Deck" component={DeckList}
+      <Tab.Screen name="Add Deck" component={AddDeck}
         options={{
           tabBarIcon: ({ color }) => (
             <FontAwesome name="plus-square"
