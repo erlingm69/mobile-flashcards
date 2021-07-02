@@ -12,7 +12,7 @@ function DeckList({ decks }) {
         <View>
             {
                 Object.keys(decks).map((item, index) => {
-                    return <DeckItem data={decks[item]} />
+                    return <DeckItem key={decks[item].title} data={decks[item]} />
                 })
             }
         </View>
