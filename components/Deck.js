@@ -1,13 +1,25 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { connect } from 'react-redux'
-import { gray } from '../utils/colors'
+import { gray, purple, red, white } from '../utils/colors'
 
 function Deck({title, questions}) {
     return (
         <View style={styles.container}>
             <Text style={styles.titleText}>{title}</Text>
             <Text style={styles.subTitleText}>{`${questions.length} cards`}</Text>
+            <TouchableOpacity
+                style={styles.addButton}>
+                <Text style={styles.addBtnText}>Add Card</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.startButton}>
+                <Text style={styles.addBtnText}>Start Quiz</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.deleteButton}>
+                <Text style={styles.deleteBtnText}>Delete Deck</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -24,9 +36,43 @@ const styles = StyleSheet.create({
     subTitleText: {
         fontSize: 15,
         textAlign: "center",
-        color: gray
+        color: gray,
+        marginBottom: 10
     },
-
+    addButton: {
+        padding: 10,
+        marginLeft: 40,
+        marginRight: 40,
+        marginBottom: 10,
+        borderRadius: 7,
+        height: 45,
+        backgroundColor: purple
+    },
+    startButton: {
+        padding: 10,
+        marginLeft: 40,
+        marginRight: 40,
+        marginBottom: 10,
+        borderRadius: 7,
+        height: 45,
+        backgroundColor: red
+    },
+    deleteButton: {
+        padding: 10,
+        marginLeft: 40,
+        marginRight: 40,
+        marginBottom: 10,
+        borderRadius: 7,
+        height: 45,
+    },
+    addBtnText: {
+        color: white,
+        fontSize: 22,
+        textAlign: 'center',
+    },
+    deleteBtnText: {
+        textAlign: 'center',
+    },
   });  
 
 function mapStateToProps(state, {route}) {
