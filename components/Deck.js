@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { gray, purple, red, white } from '../utils/colors'
 import { removeDeck } from '../actions'
 
-function Deck({ title, questions, navigation, dispatch }) {
+function Deck({ deckId, title, questions, navigation, dispatch }) {
 
     function handleDelete() {
         dispatch(removeDeck(title))
@@ -16,7 +16,11 @@ function Deck({ title, questions, navigation, dispatch }) {
             <Text style={styles.titleText}>{title}</Text>
             <Text style={styles.subTitleText}>{`${questions.length} cards`}</Text>
             <TouchableOpacity
-                style={styles.addButton}>
+                style={styles.addButton}
+                onPress={() => {
+                    navigation.navigate('Add Card',
+                    { deckId })}
+                }>
                 <Text style={styles.addBtnText}>Add Card</Text>
             </TouchableOpacity>
             <TouchableOpacity

@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { connect } from 'react-redux'
 import { getDecks } from '../utils/api'
 import { receiveDecks } from '../actions'
+import AddCard from './AddCard';
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -48,6 +49,7 @@ const NavStack = () => (
   <Stack.Navigator>
     <Stack.Screen name='Home' component={NavTab} />
     <Stack.Screen name='Deck' component={Deck} options={{ title: 'Deck details' }}/>
+    <Stack.Screen name='Add Card' component={AddCard} options={{ title: 'Add Card' }}/>
   </Stack.Navigator>
 )
 
