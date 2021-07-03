@@ -1,4 +1,4 @@
-import { RECEIVE_DECKS, ADD_DECK } from '../actions/index'
+import { RECEIVE_DECKS, ADD_DECK, REMOVE_DECK } from '../actions/index'
 
 export default function entries (state = {}, action) {
     switch(action.type) {
@@ -15,6 +15,12 @@ export default function entries (state = {}, action) {
                     answers: []
                 }
             }
+
+        case REMOVE_DECK:
+            let newState = {...state}
+            delete newState[action.title]
+            return newState
+
         default:
             return state
     }

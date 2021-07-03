@@ -2,8 +2,15 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { connect } from 'react-redux'
 import { gray, purple, red, white } from '../utils/colors'
+import { removeDeck } from '../actions'
 
-function Deck({title, questions}) {
+function Deck({ title, questions, navigation, dispatch }) {
+
+    function handleDelete() {
+        dispatch(removeDeck(title))
+        navigation.goBack()
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.titleText}>{title}</Text>
@@ -16,7 +23,7 @@ function Deck({title, questions}) {
                 style={styles.startButton}>
                 <Text style={styles.addBtnText}>Start Quiz</Text>
             </TouchableOpacity>
-            <TouchableOpacity
+            <TouchableOpacity onPress={handleDelete}
                 style={styles.deleteButton}>
                 <Text style={styles.deleteBtnText}>Delete Deck</Text>
             </TouchableOpacity>
@@ -26,7 +33,7 @@ function Deck({title, questions}) {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+        flex: 1,
     }, titleText: {
         marginTop: 10,
         fontSize: 20,
@@ -73,9 +80,9 @@ const styles = StyleSheet.create({
     deleteBtnText: {
         textAlign: 'center',
     },
-  });  
+});
 
-function mapStateToProps(state, {route}) {
+function mapStateToProps(state, { route }) {
     const { deckId } = route.params
     return {
         deckId,
