@@ -3,11 +3,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { gray, purple, red, white } from '../utils/colors'
 import { removeDeck } from '../actions'
+import { removeDeckTitle } from '../utils/api'
 
 function Deck({ deckId, title, questions, navigation, dispatch }) {
 
     function handleDelete() {
         dispatch(removeDeck(title))
+        removeDeckTitle(title)
         navigation.goBack()
     }
 
