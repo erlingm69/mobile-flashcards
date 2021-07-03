@@ -31,3 +31,16 @@ export function removeDeckTitle(title) {
         AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data))
     })
 }
+
+export function addCardToDeck(deckId, {question, answer}) {
+    return AsyncStorage.getItem(STORAGE_KEY).then((results) => {
+        let data = JSON.parse(results)
+
+        data[deckId] = {
+            ...data[deckId],
+            questions: data[deckId].questions.concat(question),
+            answers: data[deckId].questions.concat(answer),
+        }
+        AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    })
+}    

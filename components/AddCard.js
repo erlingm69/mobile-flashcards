@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { purple, white } from '../utils/colors'
-import { saveDeckTitle } from '../utils/api'
+import { addCardToDeck } from '../utils/api'
 import { addCard } from '../actions'
 
 const AddBtn = ({ onPress }) => {
@@ -15,13 +15,14 @@ const AddBtn = ({ onPress }) => {
 }
 
 function AddCard({ dispatch, navigation, deckId }) {
-    const [questionText, setQuestionText] = useState("")
-    const [answerText, setAnswerText] = useState("")
+    const [question, setQuestion] = useState("")
+    const [answer, setAnswer] = useState("")
 
     function add(){
-        setQuestionText("")
-        setAnswerText("")
-        dispatch(addCard(deckId, questionText, answerText))
+        dispatch(addCard(deckId, question, answer))
+        addCardToDeck(deckId, {question, answer})
+        setQuestion("")
+        setAnswer("")
         navigation.goBack()
     }
 
@@ -30,17 +31,17 @@ function AddCard({ dispatch, navigation, deckId }) {
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => {
-                    setQuestionText(text)
+                    setQuestion(text)
                 }}
-                value={questionText}
+                value={question}
                 placeholder="Enter Your Question"
             />
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => {
-                    setAnswerText(text)
+                    setAnswer(text)
                 }}
-                value={answerText}
+                value={answer}
                 placeholder="Enter Your Answer"
             />
             <AddBtn onPress={add}/>
