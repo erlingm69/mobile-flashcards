@@ -9,3 +9,6 @@ After cloning the project run 'yarn install'
 
 Run 'yarn web' to launch the web client. Scan the QR code with your Android or iPhone to start in Expo.
 
+## Test devices
+
+The project has been tested using Expo on both Android and iPhone
