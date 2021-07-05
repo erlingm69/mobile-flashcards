@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { connect } from 'react-redux'
 import DeckItem from './DeckItem'
@@ -9,7 +9,7 @@ function DeckList({ decks, navigation }) {
     }
 
     return (
-        <View>
+        <ScrollView>
             {
                 Object.keys(decks).map((item, index) => {
                     return <TouchableOpacity key={decks[item].title} onPress={() => navigation.navigate('Deck',
@@ -18,7 +18,7 @@ function DeckList({ decks, navigation }) {
                     </TouchableOpacity>
                 })
             }
-        </View>
+        </ScrollView>
     )
 }
 
