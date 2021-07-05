@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native'
 import DeckList from './DeckList'
 import AddDeck from './AddDeck'
-import Animation from './Animation'
 import Deck from './Deck'
 import Quiz from './Quiz'
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
@@ -50,7 +49,6 @@ const NavTab = () => (
 const NavStack = () => (
   <Stack.Navigator>
     <Stack.Screen name='Home' component={NavTab} />
-    <Stack.Screen name='Animation' component={Animation} options={{ title: '' }} />
     <Stack.Screen name='Deck' component={Deck} options={{ title: 'Deck details' }}/>
     <Stack.Screen name='Add Card' component={AddCard} options={{ title: 'Add Card' }}/>
     <Stack.Screen name='Quiz' component={Quiz}/>

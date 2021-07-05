@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, Animated } from 'react-native'
-import { connect } from 'react-redux'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { purple } from '../utils/colors'
 
-function Animation({ deckId, navigation }) {
+export default function Animation() {
     const [value ] = useState(new Animated.Value(0));
 
     useEffect(() => {
@@ -12,11 +11,6 @@ function Animation({ deckId, navigation }) {
             toValue: 1,
             duration: 1000,
         }).start()
-
-        setTimeout(() => {
-            navigation.navigate('Deck', { deckId })
-        }, 1000);
-
     }, [])
 
     const interpolateRotating = value.interpolate({
@@ -43,12 +37,3 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
 });
-
-function mapStateToProps(state, { route }) {
-    const { deckId } = route.params
-    return {
-        deckId,
-    }
-}
-
-export default connect(mapStateToProps)(Animation)
