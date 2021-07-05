@@ -4,8 +4,9 @@ import { StyleSheet, Text, View, Platform } from 'react-native'
 import DeckList from './DeckList'
 import AddDeck from './AddDeck'
 import Deck from './Deck'
-import { FontAwesome, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
-import { purple, white, gray } from '../utils/colors';
+import Quiz from './Quiz'
+import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
+import { purple, white } from '../utils/colors';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -50,6 +51,7 @@ const NavStack = () => (
     <Stack.Screen name='Home' component={NavTab} />
     <Stack.Screen name='Deck' component={Deck} options={{ title: 'Deck details' }}/>
     <Stack.Screen name='Add Card' component={AddCard} options={{ title: 'Add Card' }}/>
+    <Stack.Screen name='Quiz' component={Quiz}/>
   </Stack.Navigator>
 )
 

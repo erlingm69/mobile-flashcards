@@ -26,7 +26,9 @@ function Deck({ deckId, title, questions, navigation, dispatch }) {
                 <Text style={styles.addBtnText}>Add Card</Text>
             </TouchableOpacity>
             <TouchableOpacity
-                style={styles.startButton}>
+                style={styles.startButton}
+                onPress={() => navigation.navigate('Quiz',
+                    { deckId })}>
                 <Text style={styles.addBtnText}>Start Quiz</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleDelete}
