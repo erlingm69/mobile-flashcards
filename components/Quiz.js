@@ -52,7 +52,7 @@ function Quiz({ deckId, title, questions, answers, navigation, dispatch }) {
         return (
             <View style={styles.container}>
                 <Text style={styles.titleText}>{questions[currentQuestion]}</Text>
-                <Answer answer={answers[currentQuestion]} />
+                <Answer key={currentQuestion} answer={answers[currentQuestion]} />
                 <TouchableOpacity
                     style={styles.correctButton}
                     onPress={() => {

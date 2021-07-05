@@ -39,7 +39,7 @@ export function addCardToDeck(deckId, {question, answer}) {
         data[deckId] = {
             ...data[deckId],
             questions: data[deckId].questions.concat(question),
-            answers: data[deckId].questions.concat(answer),
+            answers: data[deckId].answers.concat(answer),
         }
         AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data))
     })

@@ -27,7 +27,7 @@ export default function entries(state = {}, action) {
                 [action.deckId]: {
                     ...state[action.deckId],
                     questions: state[action.deckId].questions.concat(action.question),
-                    answers: state[action.deckId].questions.concat(action.answer)
+                    answers: state[action.deckId].answers.concat(action.answer)
                 }
             }
 
