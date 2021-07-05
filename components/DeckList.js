@@ -12,7 +12,7 @@ function DeckList({ decks, navigation }) {
         <ScrollView>
             {
                 Object.keys(decks).map((item, index) => {
-                    return <TouchableOpacity key={decks[item].title} onPress={() => navigation.navigate('Deck',
+                    return <TouchableOpacity key={decks[item].title} onPress={() => navigation.navigate('Animation',
                         { deckId: item })}>
                         <DeckItem data={decks[item]} />
                     </TouchableOpacity>
