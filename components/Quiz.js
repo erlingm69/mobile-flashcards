@@ -14,7 +14,7 @@ function Answer({ answer }) {
                     <TouchableOpacity
                         style={styles.answerButton}
                         onPress={() => setShow(true)}>
-                        <Text style={styles.answerBtnText}>Answer</Text>
+                        <Text style={styles.answerBtnText}>Show Answer</Text>
                     </TouchableOpacity>
             }
         </View>
